@@ -1,0 +1,34 @@
+{{define "EditContact"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Contact 11</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <section>
+        <div class="main">
+            <h4>Edit contact</h4>
+            <form method="POST" action="/update">
+                <div class="row">
+                    <input type="hidden" name="Getid" value="{{ .Id }}" />
+                    <label>Name</label>
+                    <input type="text" name="name" value="{{ .Name }}" required />
+                </div>
+                <div class="row">
+                    <label>Phone</label>
+                    <input type="text" name="phone" value="{{ .Phone }}" required />
+                </div>
+                <input type="submit" value="Submit"/>
+                <a href="/" class="btn-bahaya">Cancel</a>
+            </form>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
+{{end}}

@@ -1,0 +1,54 @@
+{{define "Index"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pertemuan 11</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <section>
+        <div class="main">
+            <div class="ahead">
+                <a href="/contact/create" class="btn-primari"> create </a>
+            </div>
+            <div class="centered">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> id </th>
+                            <th> name </th>
+                            <th> phone </th>
+                            <th> action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range . }}
+                        <tr>
+                            <td>{{ .Id }}</td>
+                            <td>{{ .Name }}</td>
+                            <td>{{ .Phone }}</td>
+                                <td class="td-action">
+                                    <a class="btn-sukses" href="/contact/edit?id={{ .Id }}">Edit</a>
+                                    <a class="btn-bahaya" href="/delete?id={{ .Id }}" onclick="myFunction()">Delete</a>
+                                </td>
+                        </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </section>
+
+</body>
+
+<script>
+    function myFunction() {
+      confirm("Are you sure to delete ?");
+    }
+</script>
+
+</html>
+{{end}}
